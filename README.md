@@ -1,6 +1,6 @@
 # Seated
 
-![](http://i.gyazo.com/e341af1e766e1819731f5255096b2ae3.gif)
+![](http://i.gyazo.com/9535c61fe8df31ed2c7696737fb171e3.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
