@@ -1,0 +1,128 @@
+// colors
+$base_color: rgb(162, 208, 79);
+$darken_base_color: #93be46;
+$background_base_color: #fafafa;
+$muted_color: #aaa;
+$text_on_dark_background_color: #fff;
+
+// font-size
+$large_font_size: 18px;
+$middle_font_size: 16px;
+$small_font_size: 14px;
+@media only screen and (max-width: 480px) {
+    $large_font_size: 16px;
+    $middle_font_size: 12px;
+    $small_font_size: 10px;
+}
+
+.link-light {
+    color: $text_on_dark_background_color;
+}
+
+.current-user {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.btn-sign-out {
+    margin: -5px 20px 0 10px;
+    height: 35px;
+    padding: 8px 14px;
+    font-size: $small_font_size;
+    background: darken($muted_color, 20%);
+    &:hover {
+        background: darken($muted_color, 40%);
+    }
+}
+
+.top-bar {
+    padding: 0;
+    background: $darken_base_color;
+}
+.dropdown.menu {
+    background: $darken_base_color;
+}
+.menu-text {
+    color: #fff;
+}
+input#message {
+    background:#fff;
+    border: 2px solid #eee;
+    outline:none;
+    box-shadow:none;
+    font-size: $middle_font_size;
+    font-weight:300;
+    padding:1em .7em;
+    margin: 0;
+    border-radius: 5px;
+}
+
+#chat-container {
+    max-width: 1000px;
+    height: 75%;
+    overflow-y: scroll;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 1px 1px 2px #999;
+
+    // PC
+    @media only screen and (min-width: 481px) {
+        width: 90%;
+        border: 5px solid #ddd;
+        border-radius: 10px;
+    }
+
+    // SP
+    @media only screen and (max-width: 480px) {
+        width: 100%;
+        margin: 0;
+    }
+}
+#chat-container .row {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#message-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 95%;
+    height: 10%;
+}
+
+img {
+    display:block;
+    margin-bottom:12px;
+}
+
+.anonymous-icon {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 2px solid #eee;
+    text-align: center;
+    font-size: $large_font_size;
+}
+.user-icon {
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #fff;
+        border: 2px solid #eee;
+    }
+}
+.created-at {
+    margin: -15px 0 5px -15px;
+    time {
+        color: $muted_color;
+        padding: 0 8px;
+    }
+}
+.message {
+    line-height: 1.3em;
+    vertical-align: middle;
+}
