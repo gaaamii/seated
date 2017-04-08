@@ -1,4 +1,7 @@
 <div id="chat-container" #elementRef>
     <chat-item [item]="item" *ngFor="let item of items | async">
     </chat-item>
+    <div *ngIf="!itemsLoaded" style="text-align: center; position: fixed; bottom: 50%; left: 50%;">
+        <i class="fa fa-circle-o-notch fa-spin" style="font-size: 50px;"></i>
+    </div>
 </div>

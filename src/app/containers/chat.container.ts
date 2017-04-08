@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'chat-container',
@@ -7,13 +8,19 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 })
 
 export class ChatContainer implements OnInit {
-    @Input() items: any[];
+    @Input() items: FirebaseListObservable<any>;
 
     @ViewChild('elementRef') private elementRef: ElementRef;
 
+    itemsLoaded: boolean;
+
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.items.subscribe(() => {
+            this.itemsLoaded = true;
+        });
+    }
 
     ngAfterViewChecked() {
         this.scrollToBottom();
