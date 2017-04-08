@@ -8,6 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { secrets } from '../../secrets';
 import * as $ from 'jquery';
+import { ChatContainer } from './containers/chat.container';
 
 export const firebaseConfig = {
   apiKey: environment.FIREBASE_API_KEY,
@@ -20,7 +21,8 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatContainer,
   ],
   imports: [
     BrowserModule,

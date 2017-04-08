@@ -1,0 +1,16 @@
+// colors
+$base_color: rgb(162, 208, 79);
+$darken_base_color: #93be46;
+$background_base_color: #fafafa;
+$muted_color: #aaa;
+$text_on_dark_background_color: #fff;
+
+// font-size
+$large_font_size: 18px;
+$middle_font_size: 16px;
+$small_font_size: 14px;
+@media only screen and (max-width: 480px) {
+    $large_font_size: 16px;
+    $middle_font_size: 12px;
+    $small_font_size: 10px;
+}

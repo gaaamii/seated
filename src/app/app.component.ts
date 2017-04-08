@@ -3,49 +3,42 @@ import { AngularFire, AuthProviders, AuthMethods,FirebaseListObservable } from '
 import * as strftime from 'strftime';
 
 interface IUser {
-  name: string;
-  imageURL: string;
-  provider: string;
+    name: string;
+    imageURL: string;
+    provider: string;
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  items: FirebaseListObservable<any>;
-  message: string = '';
-  user: IUser;
+    items: FirebaseListObservable<any>;
+    message: string = '';
+    user: IUser;
 
-  @ViewChild('chatContainer') private chatContainer: ElementRef;
+    constructor(private angularFire: AngularFire) {
+        this.items = angularFire.database.list('/messages', {
+            query: {
+                limitToLast: 50,
+                orderByKey: true,
+            }
+        });
 
-  constructor(private angularFire: AngularFire) {
-    this.items = angularFire.database.list('/messages', {
-      query: {
-        limitToLast: 50,
-        orderByKey: true,
-      }
-    });
-
-    this.angularFire.auth.subscribe(auth => {
-      if (auth && auth.twitter) {
-        this.user = {
-          name: auth.twitter.displayName,
-          imageURL: auth.twitter.photoURL,
+        this.angularFire.auth.subscribe(auth => {
+            if (auth && auth.twitter) {
+                this.user = {
+                    name: auth.twitter.displayName,
+                    imageURL: auth.twitter.photoURL,
           provider: 'twitter',
         };
       }
 
       if (this.user) {
         this.send(`${this.user.name} seated.`);
-        this.scrollToBottom();
       }
     })
-  }
-
-  ngOnAfterViewInit() {
-    this.scrollToBottom();
   }
 
   loginWithTwitter() {
@@ -63,14 +56,10 @@ export class AppComponent {
       user: this.user
     };
 
-    this.items.push(params).then(() => {
-      this.scrollToBottom();
-      this.message = '';
-    });
-  }
-
-  scrollToBottom() {
-    this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+    this.message = '';
+    this.items.push(params);
+      // .then(() => {
+      // });
   }
 
   signOut() {
