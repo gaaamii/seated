@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'chat-container',
     templateUrl: 'chat.container.html',
-    styleUrls: ['./chat.container.scss']
+    styleUrls: ['./chat.container.scss'],
 })
 
 export class ChatContainer implements OnInit {
@@ -17,12 +17,10 @@ export class ChatContainer implements OnInit {
     constructor() { }
 
     ngOnInit() { 
-        this.items.subscribe(() => {
-            this.itemsLoaded = true;
-        });
+        this.itemsLoaded = true;
     }
 
-    ngAfterViewChecked() {
+    ngDoCheck() {
         this.scrollToBottom();
     }
 

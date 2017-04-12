@@ -1,6 +1,6 @@
 <div class="top-bar">
   <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu="mthoz6-dropdown-menu" role="menubar">
+    <ul class="dropdown menu" role="menubar">
       <li class="menu-text" role="menuitem">
         Seated
       </li>
@@ -10,7 +10,8 @@
     <div *ngIf="user">
       <div class="current-user">
         <a href="#" class="link-light">
-          <img src="{{ user.imageURL }}" style="width: 40px; display: inline; border-radius: 20px;">
+          <img src="{{ user.imageURL }}"
+            style="width: 40px; display: inline; border-radius: 20px;">
           {{ user.name }}
         </a>
       </div>
@@ -20,11 +21,6 @@
         Sign Out
       </button>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="columns">
   </div>
 </div>
 

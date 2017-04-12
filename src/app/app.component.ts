@@ -19,10 +19,9 @@ export class AppComponent {
     user: IUser;
 
     constructor(private angularFire: AngularFire) {
-        this.items = angularFire.database.list('/messages', {
+        this.items = angularFire.database.list('/items', {
             query: {
                 limitToLast: 50,
-                orderByKey: true,
             }
         });
 
@@ -31,14 +30,13 @@ export class AppComponent {
                 this.user = {
                     name: auth.twitter.displayName,
                     imageURL: auth.twitter.photoURL,
-          provider: 'twitter',
-        };
-      }
-
-      if (this.user) {
-        this.send(`${this.user.name} seated.`);
-      }
-    })
+                    provider: 'twitter'
+                };
+            }
+            if (this.user) {
+              this.send(`${this.user.name} seated.`);
+            }
+        });
   }
 
   loginWithTwitter() {
@@ -58,8 +56,7 @@ export class AppComponent {
 
     this.message = '';
     this.items.push(params);
-      // .then(() => {
-      // });
+    // .then(() => { do something });
   }
 
   signOut() {
