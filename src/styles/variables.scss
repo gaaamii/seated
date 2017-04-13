@@ -1,6 +1,7 @@
 // colors
 $base_color: rgb(162, 208, 79);
 $darken_base_color: #93be46;
+$deep_darken_base_color: darken($darken_base_color, 30%);
 $background_base_color: #fafafa;
 $muted_color: #aaa;
 $text_on_dark_background_color: #fff;

@@ -8,20 +8,35 @@
     </div>
 
     <div class="top-bar-right">
-        <div *ngIf="user">
-            <div class="current-user">
-                <a href="#" class="link-light">
-                    <img src="{{ user.imageURL }}" style="width: 40px; display: inline; border-radius: 20px;">
-                    {{ user.name }}
+        <ul class="dropdown menu" role="menubar" *ngIf="user" data-dropdown-menu>
+            <li class="has-submenu is-dropdown-submenu-parent is-down-arrow" role="menuitem" tabindex="0" title="{{user.name}}" aria-haspopup="true">
+                <a href="#" tabindex="-1">
+                    <img src="{{ user.imageURL }}" style="border-radius: 24px;">
                 </a>
-            </div>
-            <button type="button" class="button btn-sign-out" style="opacity: .8;" (click)="signOut()">
-                Sign Out
-            </button>
-            <button type="button" class="button">
-                <i class="fi-plus"></i>
-            </button>
-        </div>
+                <ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" aria-hidden="true" tabindex="-1" role="menu">
+                    <li class="is-submenu-item is-dropdown-submenu-item" role="menuitem">
+                        <a href="#" class="tiny">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="is-submenu-item is-dropdown-submenu-item" role="menuitem">
+                        <a href="#" class="tiny">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="is-submenu-item is-dropdown-submenu-item" role="menuitem">
+                        <a (click)="signOut()" class="tiny">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="plus-btn" (click)="doSomething()">
+                    <i class="fi-plus"></i>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 

@@ -18,7 +18,7 @@ export class AppComponent {
     message: string = '';
     user: IUser;
 
-    constructor(private angularFire: AngularFire) {
+    constructor(private angularFire: AngularFire, private elementRef: ElementRef) {
         this.items = angularFire.database.list('/items', {
             query: {
                 limitToLast: 50,

@@ -13,10 +13,11 @@
 <body>
   <app-root>Loading...</app-root>
   <script>
-    // use foundation js plugin
     window.onload = function() {
-      $(document).foundation();
-    };
+      setTimeout(function() {
+        $(document).foundation();
+      }, 1000)
+    }
   </script>
 </body>
 </html>

@@ -1,4 +1,30 @@
+@import "variables";
+
 // overwrite foundation css
 .has-tip {
     cursor: inherit;
+}
+
+.is-submenu-item {
+    a { color: $text_on_dark_background_color; }
+    a:hover {
+        background-color: $darken_base_color;
+        transition: .2s;
+    }
+}
+
+.top-bar, .top-bar ul {
+    padding: 0;
+    background: $base_color;
+}
+
+.dropdown.menu {
+    background: $base_color;
+}
+.menu-text {
+    color: #fff;
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-color: $deep_darken_base_color transparent transparent;
 }

@@ -20,16 +20,6 @@
     }
 }
 
-.top-bar {
-    padding: 0;
-    background: $darken_base_color;
-}
-.dropdown.menu {
-    background: $darken_base_color;
-}
-.menu-text {
-    color: #fff;
-}
 input#message {
     background:#fff;
     border: 2px solid #eee;
@@ -50,11 +40,22 @@ input#message {
     height: 10%;
 }
 
-img {
-    display:block;
-    margin-bottom:12px;
-}
 .message {
     line-height: 1.3em;
     vertical-align: middle;
+}
+
+.plus-btn {
+    width: 30px;
+    height: 30px;
+    background: #fafafa;
+    border-radius: 15px;
+    padding: 7px;
+    margin: 0 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    &:hover {
+        background: #eee;
+    }
 }
