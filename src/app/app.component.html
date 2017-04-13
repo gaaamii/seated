@@ -1,27 +1,28 @@
 <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" role="menubar">
-      <li class="menu-text" role="menuitem">
-        Seated
-      </li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <div *ngIf="user">
-      <div class="current-user">
-        <a href="#" class="link-light">
-          <img src="{{ user.imageURL }}"
-            style="width: 40px; display: inline; border-radius: 20px;">
-          {{ user.name }}
-        </a>
-      </div>
-      <button type="button"
-        class="button btn-sign-out" style="opacity: .8;"
-        (click)="signOut()">
-        Sign Out
-      </button>
+    <div class="top-bar-left">
+        <ul class="dropdown menu" role="menubar">
+            <li class="menu-text" role="menuitem">
+                Seated
+            </li>
+        </ul>
     </div>
-  </div>
+
+    <div class="top-bar-right">
+        <div *ngIf="user">
+            <div class="current-user">
+                <a href="#" class="link-light">
+                    <img src="{{ user.imageURL }}" style="width: 40px; display: inline; border-radius: 20px;">
+                    {{ user.name }}
+                </a>
+            </div>
+            <button type="button" class="button btn-sign-out" style="opacity: .8;" (click)="signOut()">
+                Sign Out
+            </button>
+            <button type="button" class="button">
+                <i class="fi-plus"></i>
+            </button>
+        </div>
+    </div>
 </div>
 
 <chat-container [items]="items">
@@ -29,33 +30,27 @@
 
 <!--ログインユーザーは発言出来る-->
 <div id="message-container" class="row" *ngIf="user">
-  <div class="columns small-10">
-    <input type="text"
-      id="message"
-      *ngIf="user"
-      placeholder="Type here"
-      (keyup.enter)="send($event.target.value)"
-      [(ngModel)]="message"
-    />
-  </div>
-  <div class="columns small-2">
-    <button type="button" class="button" (click)="send(message)">
-      send
-    </button>
-  </div>
+    <div class="columns small-10">
+        <input type="text" id="message" *ngIf="user"
+            placeholder="Type here"
+            (keyup.enter)="send($event.target.value)"
+            [(ngModel)]="message" />
+    </div>
+    <div class="columns small-2">
+        <button type="button" class="button" (click)="send(message)">
+            send
+        </button>
+    </div>
 </div>
 
 <!--未ログインユーザーはログインボタンしか見えない-->
 <div class="row" *ngIf="!user">
-  <div class="columns small-12" style="text-align:center;">
-    <div data-tooltip
-      aria-haspopup="true"
-      data-disable-hover="false" title="Sign in to chat!">
-      <button type="button" class="button"
-        (click)="loginWithTwitter()">
-        <i class="fi-social-twitter"></i>
-        Sign In with Twitter
-      </button>
+    <div class="columns small-12" style="text-align:center;">
+        <div data-tooltip aria-haspopup="true" data-disable-hover="false" title="Sign in to chat!">
+            <button type="button" class="button" (click)="loginWithTwitter()">
+                <i class="fi-social-twitter"></i>
+                Sign In with Twitter
+            </button>
+        </div>
     </div>
-  </div>
 </div>
