@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { secrets } from '../../secrets';
 import { ChatContainer } from './containers/chat.container';
 import { ChatItemComponent } from './components/chat-item.component';
+import { LinkerPipe } from './pipes/linker.pipe';
 
 export const firebaseConfig = {
   apiKey: environment.FIREBASE_API_KEY,
@@ -25,6 +26,7 @@ export const firebaseConfig = {
     AppComponent,
     ChatContainer,
     ChatItemComponent,
+    LinkerPipe,
   ],
   imports: [
     BrowserModule,

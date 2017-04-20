@@ -22,8 +22,7 @@
     </div>
 
     <div class="small-10 large-11 columns">
-        <div class="message">
-            {{ item.message }}
+        <div class="message" [innerHTML]="item.message | linker">
         </div>
     </div>
 </div>

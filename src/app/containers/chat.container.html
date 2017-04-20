@@ -1,39 +1,6 @@
 <div id="chat-container" #elementRef>
-    <!--これだとinstance作りすぎてしまう? -->
-    <!--<chat-item [item]="item" *ngFor="let item of items">
-    </chat-item>-->
-    {{ (items | async)?.length }}
-    <ng-container *ngFor="let item of items | async">
-        <div class="row">
-            <div class="small-12 large-12 columns">
-                <div class="created-at">
-                    <time>
-                        <span>{{ item.createdAt | date:'hh:mm' }}</span>
-                    </time>
-                </div>
-            </div>
-
-            <div class="small-2 large-1 columns">
-                <div *ngIf="item?.user?.imageURL; then userIcon else anonymousIcon"></div>
-                <ng-template  #anonymousIcon>
-                    <div class="anonymous-icon">
-                        <i class="fi-torso"></i>
-                    </div>
-                </ng-template>
-                <ng-template #userIcon>
-                    <div class="user-icon">
-                        <img src="{{ item.user.imageURL }}">
-                    </div>
-                </ng-template>
-            </div>
-
-            <div class="small-10 large-11 columns">
-                <div class="message">
-                    {{ item.message }}
-                </div>
-            </div>
-        </div>
-    </ng-container>
+    <chat-item [item]="item" *ngFor="let item of items | async">
+    </chat-item>
     <div *ngIf="(items | async)?.length <= 0" style="text-align: center; position: fixed; bottom: 50%; left: 50%;">
         <i class="fa fa-circle-o-notch fa-spin" style="font-size: 50px;"></i>
     </div>
